@@ -14,6 +14,8 @@ const app = express();
 
 //To serve static files in the defined folder
 app.use(express.static('public'));
+
+// Activate middleware that will let us receive data from the client across the request.
 app.use(express.json());
 
 
@@ -32,7 +34,7 @@ app.get("/", (req, res) => {
 })
 
 
-//get method
+//get method to retrieve all songs
 app.get("/canciones", async (req, res) => {
   try {
     const fsResponse = await readFile("repertorio.json", "utf-8");

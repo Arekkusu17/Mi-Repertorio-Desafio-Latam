@@ -47,7 +47,7 @@ function nuevaCancion() {
   };
 
   if (data.title === "" || data.artist === "" || data.key === "") {
-    alert("Title, artist and key are required.");
+    alert("Title, artist and key are required to add a new song.");
   } else {
     axios.post(url, data).then(() => getData());
   }
@@ -73,7 +73,7 @@ function prepararCancion(i, id) {
 
 function editarCancion(id) {
   if (cancion.value === "" || artist.value === "" || key.value === "") {
-    alert("Title, artist and key are required.");
+    alert("Title, artist and key are required to modify the existing song.");
   } else {
 
     axios
