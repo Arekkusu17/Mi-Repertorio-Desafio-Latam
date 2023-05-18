@@ -116,6 +116,9 @@
     cancion;
     artist;
     key;
+
+    
+
     const id = Math.floor(Math.random() * 9999)
     let data = {
       id,
@@ -124,7 +127,12 @@
       key: key.value,
     };
     console.log(data);
-    axios.post(url, data).then(() => getData());
+
+    if (data.title==="" || data.artist==="" || data.key===""){
+      alert("Title, artist and key are required.");
+    }else{
+      axios.post(url, data).then(() => getData());
+    }
   }
 
   function eliminarCancion(i, id) {
@@ -146,6 +154,10 @@
   }
 
   function editarCancion(id) {
+    if (cancion.value==="" || artist.value==="" || key.value===""){
+      alert("Title, artist and key are required.");
+    };
+    
     axios
       .put(url + "/" + id, {
         id,
